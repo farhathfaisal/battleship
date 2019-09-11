@@ -1,0 +1,68 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>SwinGame CSharp 08</Name>
+    <Description>Create a SwinGame using C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SwinGame CSharp 08</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="GameProject.csproj" File="GameProject.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="GameLogic.cs">GameLogic.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GameResources.cs">GameResources.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="gpl-2.0.txt">gpl-2.0.txt</ProjectItem>
+      <Folder Name="lib" TargetFolderName="lib">
+        <ProjectItem ReplaceParameters="false" TargetFileName="jpeg.dll">jpeg.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libfreetype-6.dll">libfreetype-6.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libogg-0.dll">libogg-0.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libpng12-0.dll">libpng12-0.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libtiff-3.dll">libtiff-3.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libvorbis-0.dll">libvorbis-0.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="libvorbisfile-3.dll">libvorbisfile-3.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ogg.dll">ogg.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SDL.dll">SDL.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SDL_gfx.dll">SDL_gfx.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SDL_image.dll">SDL_image.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SDL_mixer.dll">SDL_mixer.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SDL_ttf.dll">SDL_ttf.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SGSDK.dll">SGSDK.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SGSDK.NET.dll">SGSDK.NET.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SGSDK.NET.XML">SGSDK.NET.XML</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="smpeg.dll">smpeg.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="zlib1.dll">zlib1.dll</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <Folder Name="fonts" TargetFolderName="fonts">
+          <ProjectItem ReplaceParameters="false" TargetFileName="arial.ttf">arial.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="cour.ttf">cour.ttf</ProjectItem>
+        </Folder>
+        <Folder Name="images" TargetFolderName="images">
+          <ProjectItem ReplaceParameters="false" TargetFileName="loader_empty.png">loader_empty.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="loader_full.png">loader_full.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="SplashBack.png">SplashBack.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="SwinGameAni.png">SwinGameAni.png</ProjectItem>
+        </Folder>
+        <Folder Name="maps" TargetFolderName="maps" />
+        <ProjectItem ReplaceParameters="true" TargetFileName="readme.txt">readme.txt</ProjectItem>
+        <Folder Name="sounds" TargetFolderName="sounds">
+          <ProjectItem ReplaceParameters="false" TargetFileName="SwinGameStart.ogg">SwinGameStart.ogg</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SwinGame.icns">SwinGame.icns</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SwinGame.ico">SwinGame.ico</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="SwinGame.ico">SwinGame.ico</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
