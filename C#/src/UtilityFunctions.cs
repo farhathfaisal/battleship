@@ -130,42 +130,28 @@ static class UtilityFunctions
 
                 draw = true;
 
-                switch (grid[row, col])
-                {
-                    case var @case when @case == TileView.Ship:
-                        {
-                            draw = false;
-                            break;
-                        }
-
-                    case var case1 when case1 == TileView.Miss:
-                        {
-                            if (small)
-                                fillColor = SMALL_MISS;
-                            else
-                                fillColor = LARGE_MISS;
-                            break;
-                        }
-
-                    case var case2 when case2 == TileView.Hit:
-                        {
-                            if (small)
-                                fillColor = SMALL_HIT;
-                            else
-                                fillColor = LARGE_HIT;
-                            break;
-                        }
-
-                    case var case3 when case3 == TileView.Sea:
-                    case var case4 when case4 == TileView.Ship:
-                        {
-                            if (small)
-                                fillColor = SMALL_SEA;
-                            else
-                                draw = false;
-                            break;
-                        }
-                }
+                switch (grid[row, col]) {
+					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
+					case TileView.Miss:
+						if (small)
+							fillColor = SMALL_MISS;
+						else
+							fillColor = LARGE_MISS;
+						break;
+					case TileView.Hit:
+						if (small)
+							fillColor = SMALL_HIT;
+						else
+							fillColor = LARGE_HIT;
+						break;
+					case TileView.Sea:
+					case TileView.Ship:
+						if (small)
+							fillColor = SMALL_SEA;
+						else
+							draw = false;
+						break;
+				}
 
                 if (draw)
                 {
@@ -246,36 +232,24 @@ static class UtilityFunctions
     /// </summary>
     public static void DrawBackground()
     {
-        switch (GameController.CurrentState)
-        {
-            case var @case when @case == GameState.ViewingMainMenu:
-            case var case1 when case1 == GameState.ViewingGameMenu:
-            case var case2 when case2 == GameState.AlteringSettings:
-            case var case3 when case3 == GameState.ViewingHighScores:
-                {
-                    SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
-                    break;
-                }
-
-            case var case4 when case4 == GameState.Discovering:
-            case var case5 when case5 == GameState.EndingGame:
-                {
-                    SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
-                    break;
-                }
-
-            case var case6 when case6 == GameState.Deploying:
-                {
-                    SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
-                    break;
-                }
-
-            default:
-                {
-                    SwinGame.ClearScreen();
-                    break;
-                }
-        }
+		switch (GameController.CurrentState) {
+			case GameState.ViewingMainMenu:
+			case GameState.ViewingGameMenu:
+			case GameState.AlteringSettings:
+			case GameState.ViewingHighScores:
+			SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
+				break;
+			case GameState.Discovering:
+			case GameState.EndingGame:
+			SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
+				break;
+			case GameState.Deploying:
+			SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
+				break;
+			default:
+				SwinGame.ClearScreen();
+				break;
+		}
 
         SwinGame.DrawFramerate(675, 585);
     }

@@ -1,0 +1,12 @@
+Microsoft (R) Visual C# Compiler version 4.8.3761.0
+for C# 5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240
+
+src\Model\AIPlayer.cs(26,21): warning CS0660: 'AIPlayer.Location' defines operator == or operator != but does not override Object.Equals(object o)
+src\Model\AIPlayer.cs(26,21): warning CS0661: 'AIPlayer.Location' defines operator == or operator != but does not override Object.GetHashCode()
+src\Model\AIHardPlayer.cs(154,25): warning CS0162: Unreachable code detected
+src\Model\AIMediumPlayer.cs(68,25): warning CS0162: Unreachable code detected
+src\Model\Player.cs(14,21): warning CS0649: Field 'Player._playerGrid' is never assigned to, and will always have its default value null
+src\Model\SeaGrid.cs(17,21): warning CS0649: Field 'SeaGrid._GameTiles' is never assigned to, and will always have its default value null

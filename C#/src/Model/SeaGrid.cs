@@ -172,7 +172,7 @@ public class SeaGrid : ISeaGrid
 
         finally
         {
-            Changed?.Invoke(this, EventArgs.Empty);
+            Changed.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -210,7 +210,7 @@ public class SeaGrid : ISeaGrid
         }
         finally
         {
-            Changed?.Invoke(this, EventArgs.Empty);
+            Changed.Invoke(this, EventArgs.Empty);
         }
     }
 }

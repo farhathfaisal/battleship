@@ -79,40 +79,31 @@ public static class GameController
     public static void StartGame()
     {
         if (_theGame != null)
-            EndGame();
+			EndGame();
 
-        // Create the game
-        _theGame = new BattleShipsGame();
+		//Create the game
+		_theGame = new BattleShipsGame();
 
-        // create the players
-        switch (_aiSetting)
-        {
-            case var @case when @case == AIOption.Medium:
-                {
-                    _ai = new AIMediumPlayer(_theGame);
-                    break;
-                }
+		//create the players
+		switch (_aiSetting) {
+			case AIOption.Medium:
+				_ai = new AIMediumPlayer(_theGame);
+				break;
+			case AIOption.Hard:
+				_ai = new AIHardPlayer(_theGame);
+				break;
+			default:
+				_ai = new AIHardPlayer(_theGame);
+				break;
+		}
 
-            case var case1 when case1 == AIOption.Hard:
-                {
-                    _ai = new AIHardPlayer(_theGame);
-                    break;
-                }
+		_human = new Player(_theGame);
 
-            default:
-                {
-                    _ai = new AIHardPlayer(_theGame);
-                    break;
-                }
-        }
+		//AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
+		_ai.PlayerGrid.Changed += GridChanged;
+		_theGame.AttackCompleted += AttackCompleted;
 
-        _human = new Player(_theGame);
-
-        // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
-        _ai.PlayerGrid.Changed += GridChanged;
-        _theGame.AttackCompleted += AttackCompleted;
-
-        AddNewState(GameState.Deploying);
+		AddNewState(GameState.Deploying);
     }
 
     /// <summary>
@@ -278,21 +269,15 @@ public static class GameController
     /// to the AI player.</remarks>
     private static void CheckAttackResult(AttackResult result)
     {
-        switch (result.Value)
-        {
-            case var @case when @case == ResultOfAttack.Miss:
-                {
-                    if (_theGame.Player == ComputerPlayer)
-                        AIAttack();
-                    break;
-                }
-
-            case var case1 when case1 == ResultOfAttack.GameOver:
-                {
-                    SwitchState(GameState.EndingGame);
-                    break;
-                }
-        }
+		switch (result.Value) {
+			case ResultOfAttack.Miss:
+				if (object.ReferenceEquals(_theGame.Player, ComputerPlayer))
+					AIAttack();
+				break;
+			case ResultOfAttack.GameOver:
+				SwitchState(GameState.EndingGame);
+				break;
+		}
     }
 
     /// <summary>

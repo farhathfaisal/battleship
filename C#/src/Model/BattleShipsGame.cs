@@ -99,7 +99,7 @@ public class BattleShipsGame
         if (_players[otherPlayer].IsDestroyed)
             newAttack = new AttackResult(ResultOfAttack.GameOver, newAttack.Ship, newAttack.Text, row, col);
 
-        AttackCompleted?.Invoke(this, newAttack);
+        AttackCompleted.Invoke(this, newAttack);
 
         // change player if the last hit was a miss
         if (newAttack.Value == ResultOfAttack.Miss)

@@ -196,35 +196,22 @@ public class AIHardPlayer : AIPlayer
     /// <param name="result">the result from that hit</param>
     protected override void ProcessShot(int row, int col, AttackResult result)
     {
-        switch (result.Value)
-        {
-            case var @case when @case == ResultOfAttack.Miss:
-                {
-                    _CurrentTarget = null;
-                    break;
-                }
+		switch (result.Value) {
+			case ResultOfAttack.Miss:
+				_CurrentTarget = null;
+				break;
+			case ResultOfAttack.Hit:
+				ProcessHit(row, col);
+				break;
+			case ResultOfAttack.Destroyed:
+				ProcessDestroy(row, col, result.Ship);
+				break;
+			case ResultOfAttack.ShotAlready:
+				throw new ApplicationException("Error in AI");
+		}
 
-            case var case1 when case1 == ResultOfAttack.Hit:
-                {
-                    ProcessHit(row, col);
-                    break;
-                }
-
-            case var case2 when case2 == ResultOfAttack.Destroyed:
-                {
-                    ProcessDestroy(row, col, result.Ship);
-                    break;
-                }
-
-            case var case3 when case3 == ResultOfAttack.ShotAlready:
-                {
-                    throw new ApplicationException("Error in AI");
-                    break;
-                }
-        }
-
-        if (_Targets.Count == 0)
-            _CurrentState = AIStates.Searching;
+		if (_Targets.Count == 0)
+			_CurrentState = AIStates.Searching;
     }
 
     /// <summary>
