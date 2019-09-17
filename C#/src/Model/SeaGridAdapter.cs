@@ -25,7 +25,10 @@ public class SeaGridAdapter : ISeaGrid
     /// <param name="e">what needs to be redrawn</param>
     private void MyGrid_Changed(object sender, EventArgs e)
     {
-        Changed.Invoke(this, e);
+        if(Changed != null)
+        {
+            Changed.Invoke(this, e);
+        }
     }
 
 
