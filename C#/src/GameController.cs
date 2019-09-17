@@ -78,6 +78,7 @@ public static class GameController
     /// </remarks>
     public static void StartGame()
     {
+        Console.WriteLine("HI");
         if (_theGame != null)
 			EndGame();
 

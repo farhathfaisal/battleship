@@ -94,14 +94,15 @@ public class SeaGrid : ISeaGrid
     /// </summary>
     public SeaGrid(Dictionary<ShipName, Ship> ships)
     {
+        _GameTiles = new Tile[Width, Height];
+
         // fill array with empty Tiles
-        int i = default(int);
-        var loopTo = Width - 1;
-        for (i = 0; i <= loopTo; i++)
+        for (int i = 0; i <= Width - 1; i++)
         {
-            var loopTo1 = Height - 1;
-            for (int j = 0; j <= loopTo1; j++)
+            for (int j = 0; j <= Height - 1; j++)
+            {
                 _GameTiles[i, j] = new Tile(i, j, null);
+            }
         }
 
         _Ships = ships;
@@ -135,7 +136,8 @@ public class SeaGrid : ISeaGrid
             int size = newShip.Size;
             int currentRow = row;
             int currentCol = col;
-            int dRow = default(int), dCol = default(int);
+            int dRow = 0;
+            int dCol = 0;
 
             if (direction == Direction.LeftRight)
             {
@@ -149,12 +151,13 @@ public class SeaGrid : ISeaGrid
             }
 
             // place ship's tiles in array and into ship object
-            int i;
-            var loopTo = size - 1;
-            for (i = 0; i <= loopTo; i++)
+            for (int i = 0; i <= size - 1; i++)
             {
-                if ((currentRow < 0) | (currentRow >= Width) | (currentCol < 0) | (currentCol >= Height))
+                if (currentRow < 0 | currentRow >= Width | currentCol < 0 | currentCol >= Height)
+                {
                     throw new InvalidOperationException("Ship can't fit on the board");
+                }
+
 
                 _GameTiles[currentRow, currentCol].Ship = newShip;
 
@@ -172,7 +175,10 @@ public class SeaGrid : ISeaGrid
 
         finally
         {
-            Changed.Invoke(this, EventArgs.Empty);
+            if(Changed != null)
+            {
+                Changed.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 

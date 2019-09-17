@@ -51,12 +51,15 @@ public class Player : IEnumerable<Ship>
     public Player(BattleShipsGame controller)
     {
         _game = controller;
+        _playerGrid = new SeaGrid(_Ships);
 
         // for each ship add the ships name so the seagrid knows about them
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
         {
             if (name != ShipName.None)
+            {
                 _Ships.Add(name, new Ship(name));
+            }
         }
 
         RandomizeDeployment();
@@ -241,8 +244,8 @@ public class Player : IEnumerable<Ship>
 
     public virtual void RandomizeDeployment()
     {
-        bool placementSuccessful = default(bool);
-        Direction heading = default(Direction);
+        bool placementSuccessful = false;
+        Direction heading;
 
         // for each ship to deploy in shipist
         foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
@@ -266,6 +269,7 @@ public class Player : IEnumerable<Ship>
                 // try to place ship, if position unplaceable, generate new coordinates
                 try
                 {
+
                     PlayerGrid.MoveShip(x, y, shipToPlace, heading);
                     placementSuccessful = true;
                 }
