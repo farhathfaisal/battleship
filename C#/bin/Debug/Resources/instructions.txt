@@ -1,0 +1,10 @@
+9
+Instruction and High Score pages:
+ - Return Back - Backspace or Left click
+ - Back to main page - ESCAPE
+______________________________________
+Deployment:
+ - R - Randomize
+______________________________________
+Game:
+ - Pause - ESCAPE
