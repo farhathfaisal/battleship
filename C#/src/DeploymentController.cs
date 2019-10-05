@@ -105,7 +105,7 @@ static class DeploymentController
                 }
                 catch (Exception ex)
                 {
-                    Audio.PlaySoundEffect(GameResources.GameSound("Error"));
+                    if (Audio.MusicVolume() != 0) { Audio.PlaySoundEffect(GameResources.GameSound("Error")); }
                     UtilityFunctions.Message = ex.Message;
                 }
             }

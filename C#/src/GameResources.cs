@@ -169,7 +169,7 @@ public static class GameResources
     {
         const int ANI_CELL_COUNT = 11;
 
-        Audio.PlaySoundEffect(_StartSound);
+        if (Audio.MusicVolume() != 0) { Audio.PlaySoundEffect(_StartSound); }
         SwinGame.Delay(200);
 
         int i;
