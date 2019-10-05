@@ -127,7 +127,6 @@ C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\b
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\bin\Debug\MyGame.exe
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\bin\Debug\MyGame.pdb
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\bin\Debug\SwinGame.dll
-C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\obj\x86\Debug\BattleShip.csprojAssemblyReference.cache
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\obj\x86\Debug\BattleShip.csproj.CoreCompileInputs.cache
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\obj\x86\Debug\BattleShip.csproj.CopyComplete
 C:\Users\hayde\Documents\Uni\2019\S2\SWE20001 - Dev Project 1\W3\battleship\C#\obj\x86\Debug\MyGame.exe

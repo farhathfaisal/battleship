@@ -78,25 +78,13 @@ public static class GameController
     /// </remarks>
     public static void StartGame()
     {
-        Console.WriteLine("HI");
         if (_theGame != null)
 			EndGame();
 
 		//Create the game
 		_theGame = new BattleShipsGame();
-
-		//create the players
-		switch (_aiSetting) {
-			case AIOption.Medium:
-				_ai = new AIMediumPlayer(_theGame);
-				break;
-			case AIOption.Hard:
-				_ai = new AIHardPlayer(_theGame);
-				break;
-			default:
-				_ai = new AIHardPlayer(_theGame);
-				break;
-		}
+        
+        SetAIPlayer();
 
 		_human = new Player(_theGame);
 
@@ -107,10 +95,29 @@ public static class GameController
 		AddNewState(GameState.Deploying);
     }
 
+
+    //Set the AI Player
+    public static void SetAIPlayer()
+    {
+        //create the players
+        switch (_aiSetting)
+        {
+            case AIOption.Medium:
+                _ai = new AIMediumPlayer(_theGame);
+                break;
+            case AIOption.Hard:
+                _ai = new AIHardPlayer(_theGame);
+                break;
+            default:
+                _ai = new AIHardPlayer(_theGame);
+                break;
+        }
+    }
+
     /// <summary>
     /// Stops listening to the old game once a new game is started
     /// </summary>
-
+    /// 
     private static void EndGame()
     {
         // RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged

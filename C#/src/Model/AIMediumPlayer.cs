@@ -100,6 +100,7 @@ public class AIMediumPlayer : AIPlayer
     /// <param name="result">the result og the last shot (should be hit)</param>
     protected override void ProcessShot(int row, int col, AttackResult result)
     {
+        Console.WriteLine("MED");
         if (result.Value == ResultOfAttack.Hit)
         {
             _CurrentState = AIStates.TargetingShip;

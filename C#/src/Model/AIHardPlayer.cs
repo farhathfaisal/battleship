@@ -186,6 +186,7 @@ public class AIHardPlayer : AIPlayer
     /// <param name="result">the result from that hit</param>
     protected override void ProcessShot(int row, int col, AttackResult result)
     {
+        Console.WriteLine("HARD");
 		switch (result.Value) {
 			case ResultOfAttack.Miss:
 				_CurrentTarget = null;
