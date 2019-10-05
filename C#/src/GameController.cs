@@ -83,7 +83,7 @@ public static class GameController
 
 		//Create the game
 		_theGame = new BattleShipsGame();
-
+        
         SetAIPlayer();
 
 		_human = new Player(_theGame);
