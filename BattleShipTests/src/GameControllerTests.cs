@@ -17,23 +17,23 @@ namespace Tests
         {
             GameController.SetDifficulty(AIOption.Easy);
             GameController.SetAIPlayer();
-            if (GameController.ComputerPlayer.GetType() != typeof(Nullable))
+            if (GameController.ComputerPlayer.GetType() != typeof(AIEasyPlayer))
             {
-                Assert.Fail("ai player was not set correctly");
+                Assert.AreNotEqual(GameController.ComputerPlayer.GetType(), typeof(AIEasyPlayer));
             }
 
             GameController.SetDifficulty(AIOption.Medium);
             GameController.SetAIPlayer();
             if (GameController.ComputerPlayer.GetType() != typeof(AIMediumPlayer))
             {
-                Assert.Fail("ai player was not set correctly");
+                Assert.AreNotEqual(GameController.ComputerPlayer.GetType(), typeof(AIMediumPlayer));
             }
 
             GameController.SetDifficulty(AIOption.Hard);
             GameController.SetAIPlayer();
             if (GameController.ComputerPlayer.GetType() != typeof(AIHardPlayer))
             {
-                Assert.Fail("ai player was not set correctly");
+                Assert.AreNotEqual(GameController.ComputerPlayer.GetType(), typeof(AIHardPlayer));
             }
         }
     }
