@@ -51,7 +51,7 @@ public static class GameResources
 
     private static void LoadMusic()
     {
-        NewMusic("Background", "horrordrone.mp3");
+        NewMusic("Background", "Battleship.mp3");
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public static class GameResources
     {
         const int ANI_CELL_COUNT = 11;
 
-        if (Audio.MusicVolume() != 0) { Audio.PlaySoundEffect(_StartSound); }
+        Audio.PlaySoundEffect(_StartSound);
         SwinGame.Delay(200);
 
         int i;
