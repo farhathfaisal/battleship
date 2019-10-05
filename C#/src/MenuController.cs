@@ -19,7 +19,11 @@ static class MenuController
     /// <remarks>
     /// These are the text captions for the menu items.
     /// </remarks>
-    private readonly static string[][] _menuStructure = new[] { new string[] { "PLAY", "SETUP", "SCORES", "QUIT" }, new string[] { "RETURN", "SURRENDER", "QUIT" }, new string[] { "EASY", "MEDIUM", "HARD" } };
+    private readonly static string[][] _menuStructure = new[] {
+        new string[] { "PLAY", "SETUP", "SCORES", "QUIT" },
+        new string[] { "RETURN", "SURRENDER", "QUIT" },
+        new string[] { "EASY", "MEDIUM", "HARD", "SOUND" }
+    };
 
     private const int MENU_TOP = 575;
     private const int MENU_LEFT = 30;
@@ -41,7 +45,8 @@ static class MenuController
     private const int SETUP_MENU_EASY_BUTTON = 0;
     private const int SETUP_MENU_MEDIUM_BUTTON = 1;
     private const int SETUP_MENU_HARD_BUTTON = 2;
-    private const int SETUP_MENU_EXIT_BUTTON = 3;
+    private const int SETUP_MENU_SOUNDTOGGLE_BUTTON = 3;
+    private const int SETUP_MENU_EXIT_BUTTON = 4;
 
     private const int GAME_MENU_RETURN_BUTTON = 0;
     private const int GAME_MENU_SURRENDER_BUTTON = 1;
@@ -293,6 +298,16 @@ static class MenuController
                 break;
             case SETUP_MENU_HARD_BUTTON:
                 GameController.SetDifficulty(AIOption.Hard);
+                break;
+            case SETUP_MENU_SOUNDTOGGLE_BUTTON:
+                if(SwinGame.MusicVolume() != 0)
+                {
+                    SwinGame.SetMusicVolume(0);
+                }
+                else
+                {
+                    SwinGame.SetMusicVolume(1);
+                }
                 break;
         }
         //Always end state - handles exit button as well
