@@ -36,5 +36,44 @@ namespace Tests
                 Assert.AreNotEqual(GameController.ComputerPlayer.GetType(), typeof(AIHardPlayer));
             }
         }
+
+        [TestMethod]
+        public void AttackResulttest()
+        {
+            AttackResult result = new AttackResult(ResultOfAttack.Miss, "ship1", 0, 0);
+            string actual = result.ToString();
+            string expected = "ship1";
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+		public void AttackResultGameOverTest ()
+		{
+			AttackResult attackResult = new AttackResult (ResultOfAttack.GameOver, "Game over", 0, 0);
+			string actual = attackResult.ToString ();
+			string expected = "Game over";
+			Assert.AreEqual (expected, actual);
+		}
+
+        [TestMethod()]
+		public void AttackResultGameOverShipTest ()
+		{
+            Ship ship = new Ship (ShipName.AircraftCarrier);
+			AttackResult attackResult = new AttackResult (ResultOfAttack.GameOver, ship, "Game over", 0, 0);
+			string actual = attackResult.ToString ();
+			string expected = "Game over " + ship.Name;
+			Assert.AreEqual (expected, actual);
+		}
+
+        [TestMethod]
+        public void Shiptest()
+        {
+            Ship s = new Ship(ShipName.AircraftCarrier);
+            string actual = s.ToString();
+            string expect = "Ship";
+            Assert.AreEqual(expect, actual);
+
+        }
     }
 }
